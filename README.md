@@ -61,6 +61,55 @@ This repository contains Solidity smart contracts for:
 
 ---
 
+## 🛠 Deployment Challenges
+
+<img width="1419" alt="image" src="https://github.com/user-attachments/assets/dd0c8387-c4f2-4360-8e2c-871da2a38442" />
+
+During deployment testing, we faced significant challenges while attempting to deploy our smart contracts, particularly the `FDAO.sol` contract, on the **Westend Asset Hub** (Polkadot Testnet for assets):
+
+### ⚠️ Problem Faced:
+- **Transaction size limit exceeded:**  
+  Even for the simplest contract (FDAO.sol), the **initcode size** (deployment bytecode) exceeded the **maximum allowed size** on Westend.
+  
+- **Error Message:**
+  ```
+  creation of FDAO errored: Error occurred: the initcode size of this transaction is too large: 
+  it is 79168 bytes while the max is 49152 bytes
+  ```
+
+- **Explanation:**
+  - Westend Asset Hub imposes a strict limit of **49152 bytes** for smart contract initcode (deployment bytecode).
+  - Our FDAO contract compiled into **~79 KB** initcode even after optimization.
+  - Due to fundamental Solidity structure, even stripping features still does not shrink it enough for Westend deployment.
+  - The contract involves ERC20 functionalities, staking logic, reward distribution, and emergency withdrawal, making further modularization impractical without fundamentally redesigning the architecture.
+
+---
+
+### 🛠 Actions Taken:
+- Tried maximum Solidity optimizations (`optimizer: true, runs: 2000`) in Hardhat config.
+- Removed extra comments and unused imports.
+- Attempted flattening and modular compilation.
+- Tried deploying with **higher gas limits** (although the error is size-related, not gas-related).
+
+---
+
+### 🎯 Outcome:
+- **Conclusion:**  
+  Westend Asset Hub is currently **not suitable for full-scale smart contract deployments** involving ERC20 governance tokens like FDAO due to severe initcode size restrictions.
+
+- **Final Decision:**  
+  We deployed successfully on **Moonbase Alpha** (Moonbeam Testnet) which fully supports Solidity and has no initcode size issue, while still benefiting from Polkadot’s shared security model.
+
+---
+
+## 🚀 Why Moonbase Alpha?
+
+- Full EVM compatibility (supports standard Solidity contracts easily)
+- Part of the Polkadot ecosystem (decentralized, secure, fast)
+- Easy transition in future toward multi-chain XCM-based deployments across the Polkadot parachains.
+
+---
+
 ## 🛠️ Local Development Setup
 
 ```bash
