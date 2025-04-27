@@ -14,6 +14,14 @@ This repository contains Solidity smart contracts for:
 
 ---
 
+## 💻 Demo Video
+
+[![FarmDAO Demo](https://img.youtube.com/vi/Zg_fGW89kMY/0.jpg)](https://youtu.be/Zg_fGW89kMY)
+
+> 📺 **Watch the full demo:** [https://youtu.be/Zg_fGW89kMY](https://youtu.be/Zg_fGW89kMY)
+
+---
+
 ## 🚀 Contract Addresses on Moonbase Alpha (Moonbeam Testnet)
 
 | Contract | Address | Purpose |
