@@ -14,6 +14,17 @@ This repository contains Solidity smart contracts for:
 
 ---
 
+## ✨ Twitter Announcement
+
+Check out our official launch announcement on Twitter:
+
+➡️ [@gokulnpcc's Tweet about FarmDAO](https://x.com/gokulnpcc/status/1916512312590053482)
+
+> "FarmDAO: decentralized crop insurance on Polkadot.  
+> Automated payouts. DAO governance. Built for the future of agriculture. 🌾🚀"
+
+---
+
 ## 💻 Demo Video
 
 [![FarmDAO Demo](https://img.youtube.com/vi/Zg_fGW89kMY/0.jpg)](https://youtu.be/Zg_fGW89kMY)
